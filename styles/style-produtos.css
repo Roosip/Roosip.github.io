@@ -1,0 +1,206 @@
+/* ----------------------   Estilo para o contêiner principal da loja-------------------------------- */
+.shop-container {
+    background-color: #333333; /* Fundo escuro para o contêiner da loja */
+    width: 100%; /* Garante que o contêiner ocupe toda a largura disponível */
+}
+
+/*--------------------------- Estilo para o cabeçalho da loja, que contém o título e subtítulo------------------- */
+.shop-container .shop-header {
+    display: flex; /* Usando Flexbox para exibir os itens na horizontal */
+    padding: 10px; /* Espaçamento ao redor do cabeçalho */
+    align-items: center; /* Centraliza verticalmente os itens dentro do cabeçalho */
+    justify-content: space-between; /* Distribui os itens com espaçamento entre eles */
+}
+
+/*------------------------------ Estilo para os títulos dentro do cabeçalho da loja ---------------------------------------*/
+.shop-header h3 {
+    color: orange; /* Cor laranja para o título */
+    padding: 10px 30px; /* Espaçamento extra ao redor do título */
+}
+
+.shop-header h4 {
+    color: orange; /* Cor laranja para o subtítulo */
+    padding: 10px 20px; /* Espaçamento extra ao redor do subtítulo */
+}
+
+/*---------------------------- Estilo para a área de produtos (shop-box), que exibe os cards---------------------- */
+.shop-box {
+    display: flex; /* Usa Flexbox para organizar os produtos */
+    align-items: center; /* Centraliza os itens verticalmente */
+    justify-content: space-evenly; /* Distribui os produtos igualmente pelo espaço */
+    background-color: #404040; /* Cor de fundo mais clara para distinguir a área dos produtos */
+    padding: 50px 0; /* Espaçamento superior e inferior da área de produtos */
+    flex-wrap: wrap; /* Permite que os produtos se movam para a linha seguinte se necessário */
+}
+
+/*------------------------ Estilo para os cards de produto dentro da área de produtos ------------------------------*/
+.shop-box .card {
+    width: 280px; /* Define a largura de cada card */
+    margin: 20px; /* Espaçamento entre os cards */
+    box-shadow: 0 0 10px #535353; /* Sombra sutil ao redor do card */
+}
+
+/* -------------------------Estilo para a imagem dentro do card de produto-------------------------------- */
+.shop-box .card-image {
+    width: 100%; /* Garante que a imagem ocupe toda a largura do card */
+    height: 280px; /* Define uma altura fixa para a imagem */
+    overflow: hidden; /* Esconde qualquer parte da imagem que ultrapasse os limites do contêiner */
+}
+
+/* ----------------------------Efeito de zoom na imagem ao passar o mouse -----------------------------------*/
+.shop-box .card-image img:hover {
+    transform: scale(1.1); /* Aumenta a imagem 10% */
+    transition: transform .4s ease-in-out; /* Anima a transição do zoom de forma suave */
+}
+
+/* ---------------------------Estilo para o corpo do card (onde ficam as informações do produto) --------------------------------*/
+.shop-box .card-body {
+    padding: 20px; /* Espaçamento interno do corpo do card */
+    color: white; /* Texto branco para contraste com o fundo escuro */
+    border: 3px solid #3B3B3B; /* Borda escura ao redor do corpo do card */
+}
+
+/* -------------------------------------Estilo para o título dentro do corpo do card ------------------------------------------*/
+.shop-box .card-body h3 {
+    padding: 10px 0; /* Espaçamento ao redor do título */
+    color: orange; /* Cor laranja para o título */
+}
+
+/* -----------------------------Estilo para os ícones (como os de avaliação) dentro do card -----------------------------*/
+.shop-box .card-body i {
+    color: #27ae60; /* Cor verde para os ícones */
+    font-size: 15px; /* Tamanho do ícone */
+    position: relative;
+    bottom: 5px; /* Ajusta a posição do ícone para baixo */
+}
+
+/* --------------------------Estilo para os detalhes do produto (como descrições e outros textos) -------------------------*/
+.shop-box .card-body span{
+    font-size: 15px; /* Define o tamanho do texto */
+    position: relative;
+    bottom: 5px; /* Ajusta a posição do texto para baixo */
+}
+
+/*--------------------------------------- Estilo para o preço do produto -------------------------------*/
+.shop-box .card-body .valor-produto {
+    font-size: 20px; /* Tamanho do texto do preço */
+    margin-left: 0; /* Remove a margem à esquerda */
+}
+
+/* -----------------------------Estilo para a parte do preço (valores em destaque)------------------------------*/
+.shop-box .card-body .valor-produto span{
+    font-size: 15px; /* Tamanho menor para o valor do produto */
+    margin-left: 0; /* Remove a margem à esquerda */
+    font-weight: 700; /* Deixa o texto em negrito */
+    color: #27ae60; /* Cor verde para destacar o preço */
+}
+
+/* -------------------------------Estilo para a janela de visualização de produtos (modal) ------------------------------*/
+.produto-visualizar {
+    position: fixed; /* Fixa a janela no topo da tela */
+    top: 0; 
+    left: 0; 
+    min-height: 100vh; /* Garante que a janela ocupe toda a altura da tela */
+    width: 100%; /* Ocupa toda a largura da tela */
+    background: rgba(0, 0, 0, 0.8); /* Fundo semitransparente escuro */
+    display: none; /* Inicialmente oculta a janela */
+    align-items: center; /* Centraliza o conteúdo dentro da janela */
+    justify-content: center; /* Centraliza o conteúdo horizontalmente */
+    z-index: 9999; /* Garante que a janela fique sobreposta a outros elementos */
+}
+
+/* -----------------------------Estilo para o conteúdo dentro da janela de visualização de produtos ----------------------*/
+.produto-visualizar .visualizar {
+    display: none; /* Inicialmente oculta o conteúdo da janela */
+    padding: 1.5rem; /* Espaçamento interno ao redor do conteúdo */
+    text-align: center; /* Centraliza o texto */
+    background: #fff; /* Cor de fundo branca para o conteúdo */
+    position: relative; /* Permite o posicionamento dos elementos dentro da janela */
+    margin: 1.5rem; /* Espaçamento externo para a janela */
+    width: 30rem; /* Largura fixada para a janela */
+    border-radius: 8px; /* Bordas arredondadas para a janela */
+}
+
+/* --------------------------Torna a janela visível quando a classe 'active' é adicionada ---------------------*/
+.produto-visualizar .visualizar.active {
+    display: inline-block; /* Torna o conteúdo visível */
+}
+
+/*------------------------- Estilo para a imagem dentro da janela de visualização de produto ----------------------*/
+.produto-visualizar .visualizar img {
+    height: 100%; /* A imagem ocupa toda a altura da janela */
+    width: 100%; /* A imagem ocupa toda a largura da janela */
+    object-fit: cover; /* A imagem cobre o contêiner sem distorção */
+    border-radius: 0.5rem; /* Bordas arredondadas para a imagem */
+}
+
+/* --------------------------Estilo para o botão de fechar na janela de visualização ------------------------*/
+.produto-visualizar .visualizar .fa-times {
+    position: absolute; /* Posiciona o botão de fechar no canto superior direito */
+    top: 1.7rem; 
+    right: 2.2rem; 
+    cursor: pointer; /* Altera o cursor para indicar que é clicável */
+    color: orange; /* Cor laranja para o ícone */
+    font-size: 2rem; /* Tamanho do ícone */
+    transition: transform 0.3s ease, color 0.3s ease; /* Animação suave ao passar o mouse */
+}
+
+/*-------------------------Efeito ao passar o mouse sobre o botão de fechar -------------------------*/
+.produto-visualizar .visualizar .fa-times:hover {
+    transform: rotate(90deg); /* Gira o ícone de fechar */
+    color: red; /* Muda a cor para vermelho */
+}
+
+/*---------------------------- Estilo para o título dentro da janela de visualização do produto------------------------ */
+.produto-visualizar .visualizar h3 {
+    color: #444; /* Cor escura para o título */
+    padding: 0.4rem 0; /* Espaçamento ao redor do título */
+    font-size: 2rem; /* Tamanho do título */
+}
+
+/*----------------------------------- Estilo para as estrelas de avaliação do produto----------------------- */
+.produto-visualizar .visualizar .estrelas {
+    padding: 0.8rem 0; /* Espaçamento ao redor da seção de estrelas */
+    font-size: 1.4rem; /* Tamanho menor das estrelas */
+    color: #27ae60; /* Cor verde para as estrelas */
+}
+
+/*-------------------------- Estilo para a descrição do produto na janela de visualização---------------------- */
+.produto-visualizar .visualizar p {
+    line-height: 1.4; /* Define o espaçamento entre as linhas do texto */
+    padding: 0.8rem 0; /* Espaçamento ao redor da descrição */
+    font-size: 1.4rem; /* Tamanho do texto da descrição */
+    color: #777; /* Cor cinza claro para o texto */
+}
+
+/* -----------------------------Estilo para o preço do produto na janela de visualização------------------------- */
+.produto-visualizar .visualizar .preco {
+    padding: 0.8rem 0; /* Espaçamento ao redor do preço */
+    font-size: 2rem; /* Tamanho maior para destacar o preço */
+    color: #27ae60; /* Cor verde para o preço */
+}
+
+/*----------------------- Estilo para os botões dentro da janela de visualização de produto ------------------------*/
+.produto-visualizar .visualizar .buttons {
+    display: flex; /* Exibe os botões em uma linha */
+    gap: 1rem; /* Espaço entre os botões */
+    flex-wrap: wrap; /* Permite que os botões se movam para a linha seguinte, se necessário */
+    margin-top: 0.8rem; /* Espaçamento superior */
+    border-radius: 5px; /* Bordas arredondadas nos botões */
+}
+
+/*----------------------------------- Estilo para os links dentro dos botões -------------------------------*/
+.produto-visualizar .visualizar .buttons a {
+    flex: 1 1 14rem; /* Define o tamanho mínimo e máximo dos botões */
+    padding: 0.8rem; /* Espaçamento interno dos botões */
+    font-size: 1.6rem; /* Tamanho do texto do botão */
+    color: #444; /* Cor escura para o texto */
+    border: 0.1rem solid #444; /* Borda escura ao redor do botão */
+    border-radius: 5px; /* Bordas arredondadas para os botões */
+}
+
+/*-------------------------------------------- Efeito de hover para os botões----------------------------------- */
+.produto-visualizar .visualizar .buttons a:hover {
+    background-color: #777; /* Muda o fundo para cinza ao passar o mouse */
+    color: #fff; /* Muda a cor do texto para branco */
+}
